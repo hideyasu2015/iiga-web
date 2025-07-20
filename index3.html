@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社イイガ - 未来を拓くテクノロジー</title>
+  <style>
+    /* 基本設定 */
+    :root {
+      --primary-color: #003366;
+      /* メインの青 */
+      --secondary-color: #007BFF;
+      /* アクセントの青 */
+      --text-color: #333333;
+      --light-text-color: #f8f9fa;
+      --background-color: #ffffff;
+      /* 基調色を白に変更 */
+    }
+
+    body {
+      font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    /* ヘッダー */
+    .header {
+      background-color: rgba(255, 255, 255, 0.9);
+      /* ヘッダーも白ベースに */
+      color: var(--primary-color);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 90%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(8px);
+      /* すりガラス効果 */
+    }
+
+    .header .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .header nav a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .header nav a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background-image: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 123, 255, 0.3)), url('https://images.unsplash.com/photo-1518134114197-152686b856b3?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: var(--light-text-color);
+      text-align: center;
+      padding: 220px 5% 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin: 0 0 20px;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      max-width: 800px;
+    }
+
+    /* セクション共通スタイル */
+    .section {
+      padding: 100px 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8em;
+      color: var(--primary-color);
+      margin-bottom: 80px;
+      position: relative;
+      font-weight: bold;
+    }
+
+    /* 事業内容セクション（レイアウト大幅変更） */
+    .service-list {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      /* 各事業間の余白 */
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* 偶数番目のアイテムで画像とテキストを反転 */
+    .service-item:nth-child(even) {
+      direction: rtl;
+      /* テキストと画像の順番を反転 */
+    }
+
+    .service-item:nth-child(even)>* {
+      direction: ltr;
+      /* 中身のテキスト方向は元に戻す */
+    }
+
+    .service-image-container img {
+      width: 100%;
+      height: 400px;
+      /* 画像の高さを固定 */
+      object-fit: cover;
+      /* 画像の比率を保ちながらトリミング */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-text-container {
+      text-align: left;
+    }
+
+    .service-text-container h3 {
+      font-size: 2em;
+      color: var(--primary-color);
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: bold;
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 15px;
+    }
+
+    .service-text-container p {
+      font-size: 1em;
+      line-height: 2;
+    }
+
+    /* フッター */
+    .footer {
+      background-color: #f1f1f1;
+      color: #555;
+      text-align: center;
+      padding: 40px 5%;
+      margin-top: 80px;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 960px) {
+
+      .service-item,
+      .service-item:nth-child(even) {
+        grid-template-columns: 1fr;
+        /* スマホでは縦並びに変更 */
+        direction: ltr;
+        /* 反転をリセット */
+      }
+
+      .service-image-container {
+        margin-bottom: 30px;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+      }
+
+      .section-title {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">株式会社イイガ</div>
+    <nav>
+      <a href="#services">事業内容</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>テクノロジーで、未来のあたりまえを創る。</h1>
+      <p>通信から交通まで、社会のインフラを支え、次代へと続くイノベーションを追求します。</p>
+    </section>
+
+    <section id="services" class="section">
+      <h2 class="section-title">事業内容</h2>
+
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-image-container">
+            <img src="https://images.unsplash.com/photo-1614067169493-5b89415c98a5?q=80&w=1974&auto=format&fit=crop"
+              alt="自動運転車両">
+          </div>
+          <div class="service-text-container">
+            <h3>自動運転車両</h3>
+            <p>最先端のAIとセンサー技術を駆使し、安全で快適な自動運転車両を開発。未来の交通システムの実現に向けた実証実験を推進しています。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-image-container">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
+              alt="通信ネットワークメンテナンス">
+          </div>
+          <div class="service-text-container">
+            <h3>通信ネットワーク</h3>
+            <p>NTTの通信ネットワーク機器の保守・運用を通じて、日本の情報通信社会を24時間365日支える、信頼性の高いサービスを提供します。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-image-container">
+            <img src="https://images.unsplash.com/photo-1554502113-c114f64daf64?q=80&w=2070&auto=format&fit=crop"
+              alt="タクシー監視・無線システム">
+          </div>
+          <div class="service-text-container">
+            <h3>タクシー監視・無線システム</h3>
+            <p>タクシーの運行効率と安全性を向上させる監視システムやデジタル無線配車システムを、製造から納品、運用まで一貫してサポートします。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-image-container">
+            <img src="https://images.unsplash.com/photo-1542139362-f12534a62172?q=80&w=1974&auto=format&fit=crop"
+              alt="デジタルサイネージ（電子時刻表）">
+          </div>
+          <div class="service-text-container">
+            <h3>デジタルサイネージ</h3>
+            <p>空港や公共交通機関向けに、視認性の高い電子時刻表や案内ディスプレイを開発・提供。正確な情報伝達でスムーズな移動を支援します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="footer">
+    <p>事業に関するご相談、採用情報など、お気軽にお問い合わせください。</p>
+    <p><strong>株式会社イイガ</strong><br>Email: contact@iiga-corp.example.com</p>
+    <p style="margin-top: 20px; font-size: 0.8em;">&copy; 2025 IIGA Corporation. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>

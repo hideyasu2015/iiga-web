@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社以下 - 未来のインフラを創造する</title>
+  <style>
+    /* 基本設定 */
+    :root {
+      --primary-color: #003366;
+      /* 濃い青 */
+      --secondary-color: #007BFF;
+      /* 明るい青 */
+      --accent-color: #00BFFF;
+      /* アクセントのスカイブルー */
+      --text-color: #333;
+      --light-text-color: #f4f4f4;
+      --background-color: #ffffff;
+      --light-gray-bg: #f9f9f9;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    /* ヘッダー */
+    .header {
+      background-color: rgba(0, 51, 102, 0.9);
+      color: var(--light-text-color);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 90%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .header nav a {
+      color: var(--light-text-color);
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .header nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 123, 255, 0.5)), url('https://images.unsplash.com/photo-1581694425479-98045e05a278?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: var(--light-text-color);
+      text-align: center;
+      padding: 200px 20px 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin: 0 0 20px;
+      font-weight: 900;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      font-weight: 300;
+      max-width: 800px;
+    }
+
+    /* セクション共通スタイル */
+    .section {
+      padding: 80px 5%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5em;
+      color: var(--primary-color);
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      margin: 20px auto 0;
+    }
+
+    /* 事業内容セクション */
+    #services {
+      background-color: var(--light-gray-bg);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      text-align: left;
+    }
+
+    .service-card {
+      background-color: var(--background-color);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+    }
+
+    .service-card.highlight {
+      border: 2px solid var(--secondary-color);
+    }
+
+    .service-icon {
+      font-size: 3em;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5em;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    /* 会社概要セクション */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      text-align: left;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* お問い合わせボタン */
+    .cta-button {
+      background-color: var(--secondary-color);
+      color: var(--light-text-color);
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    /* フッター */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--light-text-color);
+      text-align: center;
+      padding: 40px 5%;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .header nav {
+        margin-top: 10px;
+      }
+
+      .header nav a {
+        margin: 0 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+      }
+
+      .section-title {
+        font-size: 2em;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">株式会社以下</div>
+    <nav>
+      <a href="#services">事業内容</a>
+      <a href="#about">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>テクノロジーで、未来の移動を創造する。</h1>
+      <p>通信から交通まで、社会のインフラを支え、次代の当たり前を創る挑戦を続けます。</p>
+    </section>
+
+    <section id="services" class="section">
+      <h2 class="section-title">事業内容</h2>
+      <div class="service-grid">
+        <div class="service-card highlight">
+          <div class="service-icon">🚗</div>
+          <h3>自動運転車両</h3>
+          <p>最先端のAIとセンサー技術を駆使し、安全で快適な自動運転車両を開発。未来の交通システムの実現に向けた実証実験を推進しています。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📡</div>
+          <h3>通信ネットワーク</h3>
+          <p>NTTの通信ネットワーク機器の保守・運用を通じて、日本の情報通信社会を24時間365日支える、信頼性の高いサービスを提供します。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚕</div>
+          <h3>タクシー監視・無線システム</h3>
+          <p>タクシーの運行効率と安全性を向上させる監視システムやデジタル無線配車システムを、製造から納品、運用まで一貫してサポートします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⏱️</div>
+          <h3>デジタルサイネージ</h3>
+          <p>空港や公共交通機関向けに、視認性の高い電子時刻表や案内ディスプレイを開発・提供。正確な情報伝達でスムーズな移動を支援します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title">私たちの挑戦</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>変化を恐れず、社会とともに進化する</h3>
+          <p>私たち株式会社以下は、創業以来、社会インフラを支える事業に真摯に取り組んでまいりました。安定した通信網の維持から、日々の移動を支える交通システムの効率化まで、私たちの技術は常に社会と共にありました。</p>
+          <p>
+            そして今、私たちは大きな変革の時を迎えています。「自動運転」という新たな領域への挑戦は、これまでの知見と技術を結集し、未来の社会基盤を創造するという強い意志の表れです。これからも現状に満足することなく、新たな価値を創造し続ける企業として、挑戦を続けていきます。
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1530982011887-3cc11cc85693?q=80&w=1932&auto=format&fit=crop"
+            alt="会議室で未来について語り合うチーム">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background-color: var(--light-gray-bg);">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p>事業に関するご相談、採用情報など、お気軽にお問い合わせください。</p>
+      <a href="mailto:contact@example.com" class="cta-button">メールで問い合わせる</a>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 株式会社以下. All Rights Reserved.</p>
+  </footer>
+
+</body>
+
+</html>
